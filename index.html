@@ -89,6 +89,8 @@
   <!--<![endif]-->
   <!-- Include all Bootstrap JavaScript plugins -->
   <script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/bootstrap/3.3.4/bootstrap.min.js"></script>
+  <!-- fallback Bootstrap JavaScript to local file -->
+  <script>$.fn.modal || document.write('<script src="js/vendor/bootstrap.min.js"><\/script>')</script>
   <!-- Custom JavaScript -->
   <script type="text/javascript" src="js/main.js"></script>
 </body>
