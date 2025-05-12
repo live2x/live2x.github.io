@@ -1,103 +1,242 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--><html lang="en" class="no-js"><!--<![endif]-->
+<html lang="zh-CN">
 <head>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>Live</title>
-<!-- Bootstrap minified CSS -->
-<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-<!-- Bootstrap optional theme -->
-<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
-<!-- Custom CSS -->
-<!--<link rel="stylesheet" type="text/css" href="css/style.css" />-->
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-<!-- Favicons -->
-<link rel="icon" href="/favicon.ico">
-<!-- Icon for iOS -->
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="76x76" href="touch-icon-ipad.png">
-<link rel="apple-touch-icon" sizes="120x120" href="touch-icon-iphone-retina.png">
-<link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad-retina.png">
-<link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-plus.png">
-<!-- Icon for Android -->
-<link rel="icon" sizes="128x128" href="icon-android-regular.png">
-<link rel="icon" sizes="192x192" href="icon-android-hi-res.png">
-<!-- iOS specify a startup image that is displayed while your web application launches -->
-<!-- iPhone and iPod touch, the image must be 320 x 480 pixels and in portrait orientation -->
-<link rel="apple-touch-startup-image" href="/startup.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IYOYO 网站">
+    <title>网站建设中 - IYOYO</title>
+    <link rel="icon" href="https://vitepress.dev/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* 全局样式 */
+        :root {
+            --primary-color: #42b983;
+            --secondary-color: #2c3e50;
+            --text-light: #fff;
+            --text-dark: #333;
+            --bg-light: #fafafa;
+            --bg-dark: #2c3e50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 顶部 Hero 区域 */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            background-color: var(--text-light);
+            border-radius: 30px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: #eaeaea;
+        }
+
+        /* 日期和时间样式 */
+        .date-time-container {
+            margin-top: 80px;  /* 增加上边距 */
+            text-align: center;
+            opacity: 0.7; /* 使日期和时钟变得稍微淡化，减少突出感 */
+        }
+
+        .date-time {
+            font-size: 1.5rem;  /* 缩小字体 */
+            font-weight: 400;
+            color: var(--text-light);
+        }
+
+        .time {
+            font-size: 2.5rem;  /* 缩小时间字体 */
+            font-weight: 500;
+            color: var(--text-light);
+        }
+
+        /* 功能展示区域 */
+        .features {
+            background-color: var(--bg-light);
+            padding: 80px 20px;
+        }
+
+        .features h2 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 40px;
+        }
+
+        .feature-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .feature-card {
+            width: 300px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-card i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 1rem 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <!--[if lt IE 9]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
-  
-  <!-- site or application content here -->
-  <!-- page header content -->
-  <header>
-   <nav>
-     <h1>Nav</h1>
-     <ul><li>Menu list</li></ul>
-   </nav>
-  </header>
-  <!-- page main content -->
-  <main id="content">
-    <article>
-      <header>
-        <h2>Article header</h2>
-      </header>
-      <section>
-        <h3>Section region</h3>
-      </section>
-      <footer><p>Aritcle footer</p></footer>
-    </article>
-    <aside role="complementary">aside</aside>
-  </main>
-  <!-- page footer content -->
-  <footer>
-    <p>Copyright &copy; Year CompanyName</p>
-    <p><a href="about.html">About</a> - <a href="policy.html">Privacy Policy</a> - <a href="contact.html">Contact Us</a></p>
-  </footer>
-  
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <!--[if lt IE 9]><!-->
-    <!-- load jQuery from Google's CDN -->
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- fallback to Microsoft's Ajax CDN -->
-    <script>window.jQuery || document.write('<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"><\/script>')</script>
-    <!-- fallback to local file -->
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.4.min.js"><\/script>')</script>
-    <!-- Migrate older jQuery code to jQuery 1.9+ -->
-    <script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-1.2.1.min.js"></script>
-    <!-- fallback to local file -->
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-migrate-1.2.1.min.js"><\/script>')</script>
-  <!--<![endif]-->
-  <!--[if (gte IE 9)|!(IE)]><!-->
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- fallback to Microsoft's Ajax CDN -->
-    <script>window.jQuery || document.write('<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"><\/script>')</script>
-    <!-- fallback to local file -->
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
-    <!-- Migrate older jQuery code to jQuery 1.9+ -->
-    <script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.migrate/jquery-migrate-3.0.0.min.js"></script>
-    <!-- fallback to local file -->
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-migrate-3.0.0.min.js"><\/script>')</script>
-  <!--<![endif]-->
-  <!-- Include all Bootstrap JavaScript plugins -->
-  <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!-- fallback Bootstrap JavaScript to local file -->
-  <script>$.fn.modal || document.write('<script src="js/vendor/bootstrap.min.js"><\/script>')</script>
-  <!-- Custom JavaScript -->
-  <!--<script type="text/javascript" src="js/main.js"></script>-->
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>网站建设中</h1>
+            <p>敬请期待，我们正在为您打造全新体验。</p>
+
+            <!-- 日期和时间 -->
+            <div class="date-time-container" id="date-time-container">
+                <div class="date-time" id="date">2024年12月09日 星期一</div>
+                <div class="time" id="time">00:00:00</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features">
+        <div class="container">
+            <h2>即将推出的功能</h2>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>极速性能</h3>
+                    <p>通过先进技术实现极速加载，为用户带来流畅体验。</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>简单配置</h3>
+                    <p>灵活的设置选项，轻松上手，无需专业技术背景。</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>移动优先</h3>
+                    <p>响应式设计，保证在任何设备上都有完美呈现效果。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <span id="year"></span>  IYOYO. All rights reserved.</p>
+    </footer>
+
+    <!-- 实时更新 JavaScript -->
+    <script>
+        function updateClockAndDate() {
+            const now = new Date();
+
+            // 时间部分
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+
+            // 日期部分
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            const weekday = weekdays[now.getDay()];
+
+            // 更新日期和时间
+            document.getElementById('date').textContent = `${year}年${month}月${day}日 ${weekday}`;
+            document.getElementById('time').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        // 初始化并定时更新
+        setInterval(updateClockAndDate, 1000);
+        updateClockAndDate();
+
+        // Set the current year in the footer
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
